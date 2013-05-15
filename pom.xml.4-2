@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>net.javajigi</groupId>
+  <artifactId>wikibook</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>wikibook Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>wikibook</finalName>
+
+    <!-- [3-5] change directory : source -->
+    <sourceDirectory>src/java</sourceDirectory>
+    
+    <!-- [3-5] change directory : test -->
+    <testSourceDirectory>src/test</testSourceDirectory>
+
+    <resources>
+      
+      <!-- [3-5] change directory : resources -->
+      <resource>
+        <directory>src/resources</directory>
+      </resource>
+
+      <!-- [4-2] add resource directory for myBatis -->
+      <resource>
+        <directory>src/java</directory>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </resource>
+      
+    </resources>
+    
+    <plugins>
+
+      <!-- [3-5] change directory : webapp -->
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.1.1</version>
+        <configuration>
+          <warSourceDirectory>webapp</warSourceDirectory>
+        </configuration>
+      </plugin>
+      
+    </plugins>
+      
+      
+  </build>
+</project>
