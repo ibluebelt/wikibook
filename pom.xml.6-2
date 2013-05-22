@@ -124,6 +124,20 @@
       </resource>
       
     </resources>
+
+
+    <pluginManagement>
+      <plugins>
+        
+        <!--[6-0] java compiler version -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.1</version>
+        </plugin>
+        
+      </plugins>
+    </pluginManagement>
     
     <plugins>
 
@@ -136,16 +150,38 @@
         </configuration>
       </plugin>
 
-      <!--[6-3] java compiler version -->
+      <!--[6-0] java compiler version -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
+        <version>3.1</version>
         <configuration>
+          
+          <!-- [6-2] version must be the same with eclipse -->
           <source>1.6</source>
           <target>1.6</target>
+          
         </configuration>
       </plugin>
+
+      <!-- [6-2] eclipse plugin for Dynamic Web Project & STS -->
+      <plugin>
+         <artifactId>maven-eclipse-plugin</artifactId>
+         <version>2.9</version>
+         <configuration>
+          <wtpversion>2.0</wtpversion>
+          <wtpContextName>/</wtpContextName>
+          <downloadSources>true</downloadSources>
+          <downloadJavadocs>true</downloadJavadocs>
+          <additionalBuildcommands>
+            <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+          </additionalBuildcommands>
+          <additionalProjectnatures>
+            <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+          </additionalProjectnatures>
+        </configuration>
+      </plugin>
+      
       
     </plugins>
       
